@@ -1,0 +1,228 @@
+@import 'base/reset';
+@import 'base/base';
+
+@import 'helpers/variables';
+@import 'helpers/utilities';
+
+
+@import url("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
+@import url("https://fonts.googleapis.com/css?family=Baloo+Tamma+2:600, 700");
+
+
+body {
+  min-height: 100vh;
+  display: flex;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: $dark;
+  background: #eee;
+  background-image: linear-gradient(
+    174deg,
+    $default 2%,
+    $default 46%,
+    #ffffff 46%,
+    #ffffff 100%,
+    #e8e8e8 100%
+  );
+  letter-spacing: 0.07em;
+}
+h1 {
+  font-family: "Baloo Tamma 2";
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5rem;
+  @media (max-width: 575px) {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+.container {
+  width: 500px;
+  padding: 0 12px;
+  margin: 3rem auto 1.5rem auto;
+  @media (max-width: 575px) {
+    margin-top: 1.5rem;
+  }
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  padding-right: 1rem;
+  color: $dark;
+  &::placeholder {
+    color: $gray;
+  }
+}
+
+.btn_add {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+}
+
+.tab {
+  display: flex;
+  text-align: center;
+  color: $gray;
+  font-size: 14px;
+  &-item {
+    position: relative;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 2px solid $light;
+    cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      height: 2px;
+      background-color: $dark;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+    &:hover {
+      background-color: $light;
+    }
+    &.active {
+      color: $dark;
+      font-weight: bold;
+      &::before {
+        transform: scaleX(100%);
+      }
+    }
+  }
+}
+
+.todo-content {
+  padding: 0.5rem 1rem 1rem 1rem;
+  @media (max-width: 575px) {
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+  }
+}
+
+.list {
+  &-item {
+    position: relative;
+    padding-right: 2rem;
+    @media (max-width: 575px) {
+      padding-right: 0;
+    }
+    .delete {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 1rem;
+      height: 1rem;
+      color: $dark;
+      background-image: url("/img/7Q4RjFx.jpg");
+      background-size: contain;
+      transform: translateY(-50%);
+      opacity: 0;
+      @media (max-width: 575px) {
+        width: 12px;
+        height: 12px;
+        opacity: 1;
+      }
+    }
+    &:hover .delete {
+      opacity: 1;
+    }
+  }
+}
+
+.todo-footer {
+  padding: 1rem 1rem 0.5rem 0.5rem;
+  font-size: 14px;
+  @media (max-width: 575px) {
+    padding: 1rem 0 0.5rem 0.5rem;
+  }
+}
+
+.linkBtn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.checklist {
+  display: block;
+  position: relative;
+  padding-left: 44px;
+  user-select: none;
+  cursor: pointer;
+
+  &-text {
+    display: block;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    line-height: 1.5;
+    @media (max-width: 575px) {
+      padding-right: 1rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $dark;
+      border-radius: 5px;
+      pointer-events: none;
+      transform: translateY(-50%) scale(1);
+      transition: 0.3s ease;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 27%;
+      width: 0.5rem;
+      height: 15px;
+      border-bottom: 3px solid $default;
+      border-right: 3px solid $default;
+      border-radius: 1px;
+      transform: rotate(45deg);
+      transition: 0.3s ease;
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+  input[type=checkbox] {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0;
+  }
+  input[type=checkbox]:checked {
+    ~ .checklist-text {
+      color: $gray;
+      text-decoration: line-through;
+    }
+    ~ .checklist-text::before {
+      border-color: transparent;
+      transform: translateY(-50%) scale(0);
+    }
+    ~ .checklist-text::after {
+      opacity: 1;
+    }
+  }
+}
+
+

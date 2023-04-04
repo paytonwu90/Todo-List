@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/all.css">
+  <title>TODO LIST</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="fw-bold text-center">TODO LIST</h1>
+    <div class="d-flex bg-white py-1 ps-4 pe-1 mb-2 rounded shadow">
+      <input type="text" placeholder="請輸入待辦事項" />
+      <a href="#" class="btn_add d-flex justify-content-center align-items-center bg-dark text-white rounded">+</a>
+    </div>
+    <div class="bg-white p-0 mb-2 rounded shadow overflow-hidden">
+      <ul class="tab">
+        <li class="tab-item active">全部</li>
+        <li class="tab-item" data-filter="P">待完成</li>
+        <li class="tab-item" data-filter="F">已完成</li>
+      </ul>
+      <div class="todo-content">
+        <ul class="list"></ul>
+        <div class="todo-footer d-flex justify-content-between align-items-center">
+          <p><span id="unfinishedTodosCount">5</span> 個待完成項目</p>
+          <a href="#" id="clearFinished" class="linkBtn text-gray">清除已完成項目</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/all.js"></script>
+</body>
+</html>

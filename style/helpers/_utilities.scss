@@ -1,0 +1,75 @@
+.p-0 {
+  padding: 0 !important;
+}
+.py-1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+.pt-1 {
+  padding-top: 0.25rem !important;
+}
+.pe-1 {
+  padding-right: 0.25rem !important;
+}
+.pb-1 {
+  padding-bottom: 0.25rem !important;
+}
+.ps-4 {
+  padding-left: 1rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.fw-bold {
+  font-weight: bold !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+.text-gray {
+  color: $gray !important;
+}
+
+.bg-white {
+  background-color: #fff !important;
+}
+.bg-dark {
+  background-color: $dark !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.rounded {
+  border-radius: 10px !important;
+}
+
+.shadow {
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15) !important;
+}
