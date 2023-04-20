@@ -1,0 +1,11 @@
+.linear-gradient-background {
+  background-color: #eee;
+  background-image: linear-gradient(
+    174deg,
+    $primary 2%,
+    $primary 46%,
+    #ffffff 46%,
+    #ffffff 100%,
+    #e8e8e8 100%
+  );
+}

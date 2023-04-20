@@ -4,29 +4,47 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/all.css">
   <title>TODO LIST</title>
 </head>
-<body>
-  <div class="container">
-    <h1 class="fw-bold text-center">TODO LIST</h1>
-    <div class="d-flex bg-white py-1 ps-4 pe-1 mb-2 rounded shadow">
-      <input type="text" placeholder="請輸入待辦事項" />
-      <a href="#" class="btn_add d-flex justify-content-center align-items-center bg-dark text-white rounded">+</a>
+<body class="linear-gradient-background">
+  <nav class="navbar navbar-light mb-2 mb-sm-8">
+    <div class="container-fluid ps-6">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="img/check.svg" alt="logo" class="me-2" style="width: 30px;">
+        <h1 class="fw-bold text-center lh-base m-0">ONLINE TODO LIST</h1>
+      </a>
+      <div class="d-flex align-items-center">
+        <div class="d-none d-sm-block fw-bold py-4 px-3"><span id="username"></span>的代辦</div>
+        <a id="logout" class="text-dark py-4 px-3" href="javascript:;">登出</a>
+      </div>
     </div>
-    <div class="bg-white p-0 mb-2 rounded shadow overflow-hidden">
-      <ul class="tab">
+  </nav>
+  <div class="container pb-12" style="max-width: 500px;">
+    <div class="position-relative d-flex align-items-center mb-4">
+      <input type="text" placeholder="請輸入待辦事項" id="todo-input" class="form-control shadow" />
+      <a href="javascript:;" class="btn-add position-absolute d-flex justify-content-center align-items-center flex-shrink-0 bg-dark text-white rounded-3">
+        <i class="fa-solid fa-plus"></i>
+      </a>
+    </div>
+    <div id="todo-board" class="bg-white p-0 mb-12 rounded-3 shadow overflow-hidden">
+      <ul class="tab list-unstyled">
         <li class="tab-item active">全部</li>
         <li class="tab-item" data-filter="P">待完成</li>
         <li class="tab-item" data-filter="F">已完成</li>
       </ul>
-      <div class="todo-content">
-        <ul class="list"></ul>
-        <div class="todo-footer d-flex justify-content-between align-items-center">
+      <div class="pt-2 pe-4 pb-2 pb-sm-4 ps-6">
+        <ul class="checklist list-unstyled"></ul>
+        <div class="d-flex justify-content-between align-items-center fs-7 pt-4 pe-0 pe-sm-4 pb-2 ps-2">
           <p><span id="unfinishedTodosCount">5</span> 個待完成項目</p>
           <a href="#" id="clearFinished" class="linkBtn text-gray">清除已完成項目</a>
         </div>
       </div>
+    </div>
+    <div class="pt-8" id="todo-empty">
+      <p class="text-center mb-4">目前尚無待辦事項</p>
+      <img src="./img/empty 1.png" alt="目前尚無待辦事項" class="mx-auto">
     </div>
   </div>
   <script src="js/all.js"></script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/all.css">
+  <title>TODO LIST</title>
+</head>
+<body class="bg-primary">
+  <div class="container py-12">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="fs-2 fw-bold lh-base ps-md-11 mb-5">
+          <a href="/" class="d-flex justify-content-center justify-content-md-start align-items-center text-dark">
+            <img src="img/check.svg" alt="logo" class="me-2"><span class="mt-1">ONLINE TODO LIST</span>
+          </a>
+        </h1>
+        <img src="img/img.png" alt="" class="d-none d-md-block">
+      </div>
+      <div class="col-md-6">
+        <h2 class="fs-4 fw-bold text-center text-md-start mb-8">最實用的線上代辦事項服務</h2>
+        <form action="" id="loginForm">
+          <div class="inputSection mb-4">
+            <label for="email" class="form-label fs-7 fw-bold mb-1">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="請輸入Email">
+            <p class="message fs-7 text-danger"></p>
+          </div>
+          <div class="inputSection mb-7">
+            <label for="password" class="form-label fs-7 fw-bold mb-1">Password</label>
+            <div class="position-relative">
+              <input type="password" class="form-control" id="password" name="password" role="password" placeholder="請輸入密碼">
+              <a class="togglePassword position-absolute top-50 end-0 translate-middle flex-center text-dark cursor-pointer">
+                <i class="fa-solid fa-eye-slash pointer-events-none"></i>
+              </a>
+            </div>
+            <p class="message fs-7 text-danger"></p>
+          </div>
+          <div class="d-flex justify-content-center mb-6">
+            <button type="submit" class="btn btn-dark fw-bold">登入</button>
+          </div>
+        </form>
+        <div class="d-flex justify-content-center">
+          <a href="register.html" class="fw-bold text-dark">註冊帳號</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="promptModal" tabindex="-1" aria-labelledby="promptModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title" id="promptModalLabel">Modal title</h5> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="promptModal-text" class="text-center p-10"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+  <script src="js/all.js"></script>
+</body>
+</html>

@@ -46,7 +46,6 @@ $yellow:  #ffc107 !default;
 $green:   #198754 !default;
 $teal:    #20c997 !default;
 $cyan:    #0dcaf0 !default;
-$gray:    #9f9a91;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -62,20 +61,20 @@ $colors: (
   "teal":       $teal,
   "cyan":       $cyan,
   "white":      $white,
-  "gray":       $gray, //$gray-600,
+  "gray":       $gray-600,
   "gray-dark":  $gray-800
 ) !default;
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary:       #ffd370; //$blue !default;
+$primary:       $blue !default;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
-$light:         #efefef; //$gray-100 !default;
-$dark:          #333; //$gray-900 !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -87,8 +86,7 @@ $theme-colors: (
   "warning":    $warning,
   "danger":     $danger,
   "light":      $light,
-  "dark":       $dark,
-  "gray":       $gray
+  "dark":       $dark
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -379,16 +377,9 @@ $spacers: (
   0: 0,
   1: $spacer * .25,
   2: $spacer * .5,
-  3: $spacer * .75, //$spacer,              12px
-  4: $spacer, //$spacer * 1.5,              16px
-  5: $spacer * 1.25, //$spacer * 3,         20px
-  6: $spacer * 1.5, //new                   24px
-  7: $spacer * 1.75, //new                  28px
-  8: $spacer * 2, //new                     32px
-  9: $spacer * 2.25, //new                  36px
-  10: $spacer * 2.5, //new                  40px
-  11: $spacer * 2.75, //new                 44px
-  12: $spacer * 3, //new                    48px
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
 ) !default;
 
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
@@ -411,7 +402,7 @@ $position-values: (
 // Settings for the `<body>` element.
 
 $body-bg:                   $white !default;
-$body-color:                $dark; //$gray-900 !default;
+$body-color:                $gray-900 !default;
 $body-text-align:           null !default;
 
 // Utilities maps
@@ -442,7 +433,7 @@ $utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg") !d
 // Style anchor elements.
 
 $link-color:                              $primary !default;
-$link-decoration:                         none; //underline !default;
+$link-decoration:                         underline !default;
 $link-shade-percentage:                   20% !default;
 $link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration:                   null !default;
@@ -527,9 +518,9 @@ $border-color:                $gray-300 !default;
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
-$border-radius:               .625rem;//10px  .25rem !default;
+$border-radius:               .25rem !default;
 $border-radius-sm:            .2rem !default;
-$border-radius-lg:            .625rem;//10px  //.3rem !default;
+$border-radius-lg:            .3rem !default;
 $border-radius-pill:          50rem !default;
 // scss-docs-end border-radius-variables
 
@@ -604,7 +595,6 @@ $h3-font-size:                $font-size-base * 1.75 !default;
 $h4-font-size:                $font-size-base * 1.5 !default;
 $h5-font-size:                $font-size-base * 1.25 !default;
 $h6-font-size:                $font-size-base !default;
-$h7-font-size:                $font-size-base * .875; //new
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
@@ -614,8 +604,7 @@ $font-sizes: (
   3: $h3-font-size,
   4: $h4-font-size,
   5: $h5-font-size,
-  6: $h6-font-size,
-  7: $h7-font-size
+  6: $h6-font-size
 ) !default;
 // scss-docs-end font-sizes
 
@@ -742,8 +731,8 @@ $table-variants: (
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
 // scss-docs-start input-btn-variables
-$input-btn-padding-y:         .75rem; //.375rem !default;
-$input-btn-padding-x:         1rem; //.75rem !default;
+$input-btn-padding-y:         .375rem !default;
+$input-btn-padding-x:         .75rem !default;
 $input-btn-font-family:       null !default;
 $input-btn-font-size:         $font-size-base !default;
 $input-btn-line-height:       $line-height-base !default;
@@ -772,7 +761,7 @@ $input-btn-border-width:      $border-width !default;
 
 // scss-docs-start btn-variables
 $btn-padding-y:               $input-btn-padding-y !default;
-$btn-padding-x:               3rem; //$input-btn-padding-x !default;
+$btn-padding-x:               $input-btn-padding-x !default;
 $btn-font-family:             $input-btn-font-family !default;
 $btn-font-size:               $input-btn-font-size !default;
 $btn-line-height:             $input-btn-line-height !default;
@@ -870,7 +859,7 @@ $input-focus-color:                     $input-color !default;
 $input-focus-width:                     $input-btn-focus-width !default;
 $input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
 
-$input-placeholder-color:               $gray; //$gray-600 !default;
+$input-placeholder-color:               $gray-600 !default;
 $input-plaintext-color:                 $body-color !default;
 
 $input-height-border:                   $input-border-width * 2 !default;

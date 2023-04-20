@@ -1,11 +1,22 @@
-* {
+*,*::before,*::after {
   box-sizing: border-box;
 }
 html {
   font-size: 16px;
   -webkit-tap-highlight-color: transparent;
 }
-a {
-  text-decoration: none;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
+body {
+  min-height: 100vh;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+h1 {
+  font-family: "Baloo Tamma 2";
+  font-size: 1.5rem;
+}
