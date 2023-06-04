@@ -156,7 +156,7 @@ const RegisterHelper = (function() {
         localStorage.setItem('TODOLIST_login', email); //用來判斷現在登入的 email
         Prompt.content('註冊成功').show();
         setTimeout(() => {
-          window.location.href = '/';
+          RedirectHelper.goHomePage();
         }, 2000);
       }
     }
@@ -183,7 +183,7 @@ const LoginHelper = (function() {
         Prompt.content(`Hi ${username}，歡迎回來！`).show();
         localStorage.setItem('TODOLIST_login', email);
         setTimeout(() => {
-          window.location.href = '/';
+          RedirectHelper.goHomePage();
         }, 2000);
         
         return true;
@@ -205,8 +205,40 @@ const Logout = function() {
   if (LoginHelper.getLoginUser()) {
     localStorage.removeItem('TODOLIST_login');
   }
-  window.location.href = '/login.html';
+  RedirectHelper.goLoginPage();
 };
+
+const RedirectHelper = (function() {
+  const pathname = window.location.pathname;
+  let hrefPrefix = '';
+
+  init();
+  function init() {
+    //找到 pathname 的最後一個 '/'，從這裡開始替換 url
+    //要處理這個的原因是推上 github 之後各頁面的 pathname 不會是 /*.html 而是 /<repo>/*.html
+    const index = pathname.lastIndexOf('/');
+    hrefPrefix = pathname.substring(0, index);
+  }
+
+  const publicAPIs = {
+    isHomePage: function() {
+      return pathname === hrefPrefix + '/' || pathname === hrefPrefix + '/index.html';
+    },
+    isLoginPage: function() {
+      return pathname === hrefPrefix + '/login.html';
+    },
+    isRegisterPage: function() {
+      return pathname === hrefPrefix + '/register.html';
+    },
+    goHomePage: function() {
+      window.location.href = hrefPrefix + '/';
+    },
+    goLoginPage: function() {
+      window.location.href = hrefPrefix + '/login.html';
+    }
+  }
+  return publicAPIs;
+})();
 
 
 
@@ -214,16 +246,14 @@ const Logout = function() {
 //沒登入不能進到首頁，有登入的話一定導到首頁
 (function() {
   const user = LoginHelper.getLoginUser();
-  const pathname = window.location.pathname;
-  if (pathname === '/index.html') pathname = '/';
   if (user) {
-    if (pathname === '/login.html' || pathname === 'register.html') {
-      window.location.href = '/';
+    if (RedirectHelper.isLoginPage() || RedirectHelper.isRegisterPage()) {
+      RedirectHelper.goHomePage();
     }
   }
   else {
-    if (pathname === '/') {
-      window.location.href = '/login.html';
+    if (RedirectHelper.isHomePage()) {
+      RedirectHelper.goLoginPage();
     }
   }
 })();

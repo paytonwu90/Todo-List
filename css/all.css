@@ -12975,7 +12975,7 @@ h1, .h1 {
   width: 1rem;
   height: 1rem;
   color: #333;
-  background-image: url("/img/7Q4RjFx.jpg");
+  background-image: url("./../img/7Q4RjFx.jpg");
   background-size: contain;
   transform: translateY(-50%);
   opacity: 0;
