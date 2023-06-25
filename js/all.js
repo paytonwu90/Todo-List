@@ -305,6 +305,7 @@ if (form) {
 
 
 let data = [];
+let filter = ''; //紀錄現在在哪個 tab
 
 const TodoStatus = {FINISHED: 'F', INPROGRESS: 'P'};
 Object.freeze(TodoStatus);
@@ -333,7 +334,7 @@ const indexInit = (function() {
 
   const input = $('#todo-input');
   input.addEventListener('keydown', function(e) {
-    if (e.key !== 'Enter') return;
+    if (e.key !== 'Enter' || this.value === '') return;
     btn_add.click();
   });
 
@@ -341,9 +342,9 @@ const indexInit = (function() {
   tab.addEventListener('click', function(e) {
     const target = e.target;
     if (!target.classList.contains('tab-item')) return;
-    const filter = target.dataset.filter;
+    filter = target.dataset.filter || '';
     switchTab(target);
-    renderData(filter);
+    renderData();
   });
 
   const list = $('.checklist');
@@ -358,6 +359,7 @@ const indexInit = (function() {
         todo.status = TodoStatus.INPROGRESS;
       }
       updateUnfinishedTodosCount();
+      if (filter) renderData();
     }
     if (target.classList.contains('checklist-item__delete')) {
       const listItem = target.closest('.checklist-item');
@@ -449,7 +451,7 @@ function switchTab(target) {
   });
 }
 
-function renderData(filter) {
+function renderData() {
   const list = $('.checklist');
   list.innerHTML = '';
   data.forEach(function(todo) {
